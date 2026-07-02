@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gj-navy: #0A192F;
+  --gj-navy-2: #112240;
+  --gj-gold: #C5A059;
+  --gj-gold-2: #D4AF37;
+  --gj-bg: #F8FAFC;
+  --gj-border: #E2E8F0;
+  --gj-text: #0F172A;
+  --gj-muted: #475569;
+}
+
+body {
+  margin: 0;
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  background-color: var(--gj-bg);
+  color: var(--gj-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-serif-gj {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 217 71% 11%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 217 71% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 41 45% 56%;
+    --accent-foreground: 217 71% 11%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 41 45% 56%;
+    --chart-1: 217 71% 11%;
+    --chart-2: 41 45% 56%;
+    --chart-3: 197 37% 34%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gj-gold); }
+
+.gj-gradient-navy {
+  background: linear-gradient(180deg, #0A192F 0%, #0B1E38 100%);
+}
+
+.gj-shine {
+  background-image: linear-gradient(120deg, #C5A059 0%, #E4C77A 50%, #C5A059 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gj-fade-in {
+  animation: gjFadeIn 0.5s ease-out;
+}
+@keyframes gjFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+[data-debug-wrapper="true"] {
+  display: contents !important;
+}

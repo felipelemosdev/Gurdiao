@@ -1,0 +1,79 @@
+{
+  "project_name": "Guardian Juri",
+  "language": "PT-BR",
+  "theme": "light",
+  "archetype": "Archetype 4: Swiss & High-Contrast (Old Money Tech variant)",
+  "design_philosophy": "Serious, professional, trust-inspiring visual design for a Brazilian law firm. Using high-contrast deep navy and elegant gold accents to convey authority and legacy, while maintaining high legibility for dense legal data.",
+  "colors": {
+    "background": "#F8FAFC",
+    "surface": "#FFFFFF",
+    "primary": "#0A192F",
+    "primary_hover": "#112240",
+    "secondary": "#C5A059",
+    "secondary_hover": "#D4AF37",
+    "text_primary": "#0F172A",
+    "text_secondary": "#475569",
+    "border": "#E2E8F0",
+    "success": "#10B981",
+    "warning": "#F59E0B",
+    "error": "#EF4444"
+  },
+  "typography": {
+    "heading_font": "Playfair Display",
+    "body_font": "IBM Plex Sans",
+    "h1": "text-4xl sm:text-5xl font-bold tracking-tight text-primary",
+    "h2": "text-2xl sm:text-3xl font-semibold tracking-tight text-primary",
+    "h3": "text-xl sm:text-2xl font-medium text-primary",
+    "h4": "text-lg font-medium text-text-primary",
+    "body": "text-base text-text-secondary leading-relaxed",
+    "small": "text-sm text-text-secondary",
+    "label": "text-xs font-semibold uppercase tracking-[0.2em] text-text-secondary"
+  },
+  "spacing_and_layout": {
+    "dashboard_grid": "grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6",
+    "card_padding": "p-6",
+    "section_spacing": "py-12",
+    "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "border_radius": "rounded-lg"
+  },
+  "components": {
+    "button_primary": "bg-[#0A192F] text-white hover:bg-[#112240] transition-colors rounded-md px-4 py-2 font-medium shadow-sm",
+    "button_secondary": "bg-[#C5A059] text-white hover:bg-[#D4AF37] transition-colors rounded-md px-4 py-2 font-medium shadow-sm",
+    "card": "bg-white border border-[#E2E8F0] rounded-lg shadow-sm hover:shadow-md transition-shadow",
+    "input": "border border-[#E2E8F0] rounded-md px-3 py-2 w-full focus:ring-2 focus:ring-[#C5A059] focus:border-transparent outline-none text-text-primary",
+    "sidebar": "bg-[#0A192F] text-slate-300 w-64 min-h-screen border-r border-[#112240] flex flex-col",
+    "sidebar_active_link": "bg-[#112240] text-[#C5A059] border-l-4 border-[#C5A059]"
+  },
+  "motion": {
+    "hover": "transition-all duration-200 ease-in-out",
+    "entrance": "animate-in fade-in slide-in-from-bottom-4 duration-500"
+  },
+  "media": {
+    "login_background": {
+      "url": "https://images.unsplash.com/photo-1775144657566-e5b093073baf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwxfHxsYXclMjBvZmZpY2UlMjBkZXNrfGVufDB8fHx8MTc4MzExOTMxMHww&ixlib=rb-4.1.0&q=85",
+      "description": "Elegant law office desk with flags. Use with a dark blue overlay on the left side of the login page."
+    },
+    "avatar_lawyer_1": {
+      "url": "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxNzV8MHwxfHNlYXJjaHwxfHxsYXd5ZXIlMjBwb3J0cmFpdHxlbnwwfHx8fDE3ODMxMTkzMTB8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Male lawyer avatar."
+    },
+    "avatar_lawyer_2": {
+      "url": "https://images.unsplash.com/photo-1662104935883-e9dd0619eaba?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxNzV8MHwxfHNlYXJjaHwyfHxsYXd5ZXIlMjBwb3J0cmFpdHxlbnwwfHx8fDE3ODMxMTkzMTB8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Female lawyer avatar."
+    }
+  },
+  "instructions_to_main_agent": [
+    "1. Initialization: Create the React app using standard .jsx and .js files (no TypeScript). Configure Tailwind CSS with the colors provided. Import Playfair Display and IBM Plex Sans from Google Fonts.",
+    "2. Component Strategy: Use Shadcn UI (converted to .js/.jsx) for tables, modals, dropdowns, and cards to maintain high accessibility and a professional look. Go cardless where possible or use subtle 1px borders with no extreme shadows.",
+    "3. Auth Flow: Create a Login screen split in half. Left: login_background image with a 60% deep navy (#0A192F) overlay. Right: Login form with Email, Senha (password), and an 'Entrar' button styled as button_secondary (gold).",
+    "4. Layout Wrapper: Build an Admin Layout with a Sidebar on the left. The Sidebar is deep navy (#0A192F) with links: Dashboard, Clientes, Processos, Agenda, Financeiro, Usuários. Active link MUST have gold text and a gold left border.",
+    "5. Dashboard Page: Implement a 4-column grid (Control Room grid) for KPI cards: Processos Ativos, Prazos Próximos, Total Clientes, Receita. Below KPIs, use Recharts for a clean bar chart showing monthly case load or revenue.",
+    "6. Clientes Page: CRUD view using a table. Columns: Nome, CPF/CNPJ, Contato, Ações. Include an 'Adicionar Cliente' button (primary blue).",
+    "7. Processos Page: Table listing cases. Columns: Nº CNJ, Tribunal, Vara, Cliente, Status. Make rows clickable to open a detail view. The detail view MUST support multiple PDF document uploads and a PDF viewer component.",
+    "8. Agenda Page: A calendar or list view displaying upcoming 'Prazos' (Deadlines) and 'Audiências' (Hearings).",
+    "9. Financeiro Page: Table tracking 'Honorários' (Fees) and 'Despesas' (Expenses). Use status badges: Pago (Green), Pendente (Yellow).",
+    "10. Usuários Page: Admin-only view to manage staff. Form to create users with roles: Advogado, Estagiário, Secretária.",
+    "11. Testing Requirements: ALL interactive elements (buttons, inputs, links, tabs) MUST have a 'data-testid' attribute using kebab-case and role-based naming (e.g., data-testid='login-submit-button').",
+    "12. Formatting: Ensure all text is in Brazilian Portuguese (PT-BR)."
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Smoke test for Guardian Juri MVP. Backend auth + core list endpoints working. Frontend end-to-end: login (valid+invalid), dashboard KPIs, sidebar, cliente create, processo create, agenda/financeiro/usuarios pages load, logout — all passed. Deep flows (PDF upload/view, toggle status, role restriction for estagiario, edit/delete) not exercised in this first-finish pass.",
+  "tested_scope": ["backend", "frontend", "auth", "integration"],
+  "passed": [
+    "POST /api/auth/login valid -> 200 with token+user",
+    "POST /api/auth/login invalid -> 401 'E-mail ou senha inválidos'",
+    "GET /api/auth/me with Bearer -> 200",
+    "GET /api/clientes -> 200",
+    "GET /api/processos -> 200",
+    "Login UI: wrong password shows login-error-message",
+    "Login UI: valid credentials redirect to /dashboard",
+    "Dashboard renders 4 KPI cards + dashboard-chart",
+    "Sidebar shows nav-dashboard/clientes/processos/agenda/financeiro/usuarios + logout-button for advogado",
+    "Clientes: create client via modal persists and appears in list",
+    "Processos: create processo linked to client, row rendered with processo-row-{id}",
+    "Agenda, Financeiro, Usuarios pages load with their primary add buttons",
+    "Logout redirects to /login"
+  ],
+  "failed": [],
+  "action_items": [
+    "Optional: recharts ResponsiveContainer warns 'width(-1) height(-1)' on dashboard-chart — cosmetic; consider setting minHeight on container.",
+    "Deferred to full testing: PDF upload/visualizar/delete flow, toggle-prazo/toggle-status, edit/delete cliente, estagiario role restriction on /usuarios, user create+delete."
+  ],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "retest_needed": false,
+  "full_testing_deferred": true
+}
